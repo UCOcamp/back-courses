@@ -1,6 +1,6 @@
 import { AggregateRoot } from '@nestjs/cqrs';
 import ContentBlock, { ContentBlockAsJSON } from './ContentBlock';
-import RegisteredUser, { RegisteredUserAsJSON } from './RegisteredUser';
+import Subscription, { SubscriptionAsJSON } from './Subscription';
 
 type CourseAsJSON = {
   id: string;
@@ -11,7 +11,7 @@ type CourseAsJSON = {
   createdAt: Date;
   duration: number;
   contentBlocks: ContentBlockAsJSON[];
-  registeredUsers: RegisteredUserAsJSON[];
+  subscriptions: SubscriptionAsJSON[];
 };
 
 class Course extends AggregateRoot {
@@ -23,7 +23,7 @@ class Course extends AggregateRoot {
   private readonly _createdAt: Date;
   private _duration: number;
   private _contentBlocks: ContentBlock[];
-  private _registeredUsers: RegisteredUser[];
+  private _subscriptions: Subscription[];
 
   constructor(
     id: string,
@@ -34,7 +34,7 @@ class Course extends AggregateRoot {
     createdAt: Date,
     duration: number,
     contentBlocks: ContentBlock[],
-    registeredUsers: RegisteredUser[]
+    subscriptions: Subscription[]
   ) {
     super();
     this._id = id;
@@ -45,7 +45,7 @@ class Course extends AggregateRoot {
     this._createdAt = createdAt;
     this._duration = duration;
     this._contentBlocks = contentBlocks;
-    this._registeredUsers = registeredUsers;
+    this._subscriptions = subscriptions;
   }
 
   get id() {
@@ -98,11 +98,11 @@ class Course extends AggregateRoot {
     this._contentBlocks = contentBlocks;
   }
 
-  get registeredUsers() {
-    return this._registeredUsers;
+  get subscriptions() {
+    return this._subscriptions;
   }
-  set registeredUsers(registeredUsers: RegisteredUser[]) {
-    this._registeredUsers = registeredUsers;
+  set subscriptions(subscriptions: Subscription[]) {
+    this._subscriptions = subscriptions;
   }
 
   get json(): CourseAsJSON {
@@ -115,7 +115,7 @@ class Course extends AggregateRoot {
       duration: this.duration,
       thumbnailUrl: this.thumbnailUrl,
       contentBlocks: this.contentBlocks.map((block) => block.json),
-      registeredUsers: this.registeredUsers.map((user) => user.json),
+      subscriptions: this.subscriptions.map((subs) => subs.json),
     };
   }
 }

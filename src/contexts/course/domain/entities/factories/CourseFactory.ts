@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import EntityFactory from '../../../../shared/domain/EntityFactory';
 import ContentBlock from '../ContentBlock';
 import Course from '../Course';
-import RegisteredUser from '../RegisteredUser';
+import Subscription from '../Subscription';
 
 @Injectable()
 class CourseFactory implements EntityFactory<Course> {
@@ -23,7 +23,7 @@ class CourseFactory implements EntityFactory<Course> {
       new Date(),
       duration,
       new Array<ContentBlock>(),
-      new Array<RegisteredUser>()
+      new Array<Subscription>()
     );
   }
 }
