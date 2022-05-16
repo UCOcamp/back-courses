@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { Response as res } from 'express';
-import { FileFieldsInterceptor } from '@nestjs/platform-express';
+import { FileInterceptor } from '@nestjs/platform-express';
 import {
   ApiBody,
   ApiConsumes,
@@ -70,17 +70,10 @@ class CreateCourseController {
   @ApiBody({
     type: CreateCourseDTO,
   })
-  @UseInterceptors(
-    FileFieldsInterceptor(
-      [{ name: 'thumbnail', maxCount: 1 }],
-      saveCourseThumbnail
-    )
-  )
+  @UseInterceptors(FileInterceptor('thumbnail', saveCourseThumbnail))
   async createCourse(
     @UploadedFile()
-    file: {
-      thumbnail: Express.Multer.File[];
-    },
+    thumbnail: Express.Multer.File,
     @Body()
     params: {
       title: string;
@@ -95,8 +88,7 @@ class CreateCourseController {
     if (!title || !description || !authorID || !duration) {
       throw new BadRequestException('Required params are missing!');
     }
-
-    const { thumbnail } = file;
+    console.log(thumbnail);
 
     if (!thumbnail) {
       throw new NotAcceptableException(
@@ -107,7 +99,7 @@ class CreateCourseController {
     const request = new CreateCourseRequest(
       title,
       description,
-      thumbnail[0].path,
+      thumbnail.path,
       authorID,
       duration
     );
