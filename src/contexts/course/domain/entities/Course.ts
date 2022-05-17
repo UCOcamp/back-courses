@@ -107,6 +107,9 @@ class Course extends AggregateRoot {
   set subscriptions(subscriptions: Subscription[]) {
     this._subscriptions = subscriptions;
   }
+  addSubscription(subcription: Subscription) {
+    this._subscriptions.push(subcription);
+  }
 
   get json(): CourseAsJSON {
     return {
