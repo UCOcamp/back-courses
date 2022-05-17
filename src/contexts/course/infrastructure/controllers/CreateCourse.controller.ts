@@ -88,7 +88,6 @@ class CreateCourseController {
     if (!title || !description || !authorID || !duration) {
       throw new BadRequestException('Required params are missing!');
     }
-    console.log(thumbnail);
 
     if (!thumbnail) {
       throw new NotAcceptableException(

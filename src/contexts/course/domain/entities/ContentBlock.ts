@@ -60,6 +60,9 @@ class ContentBlock {
   set lessons(lessons: Lesson[]) {
     this._lessons = lessons;
   }
+  addLesson(lesson: Lesson) {
+    this._lessons.push(lesson);
+  }
 
   get json(): ContentBlockAsJSON {
     return {
