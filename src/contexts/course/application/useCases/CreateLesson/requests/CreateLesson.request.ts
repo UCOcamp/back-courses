@@ -1,5 +1,3 @@
-import Video from '../../../../domain/entities/Video';
-
 class CreateLessonRequest {
   constructor(
     public readonly courseID: string,
@@ -8,7 +6,7 @@ class CreateLessonRequest {
     public readonly description: string,
     public readonly duration: number,
     public readonly thumbnailUrl: string,
-    public readonly video: Video
+    public readonly videoUrl: string
   ) {}
 }
 

@@ -8,7 +8,9 @@ import {
 } from '../../application/useCases/_index';
 import ContentBlockFactory from '../../domain/entities/factories/ContentBlockFactory';
 import CourseFactory from '../../domain/entities/factories/CourseFactory';
+import LessonFactory from '../../domain/entities/factories/LessonFactory';
 import SubscriptionFactory from '../../domain/entities/factories/SubscriptionFactory';
+import VideoFactory from '../../domain/entities/factories/VideoFactory';
 import { CourseControllers } from '../controllers/_index';
 import MongoCourseEntityRepository from '../persistance/mongo/repositories/CourseEntityRepository';
 import CourseSchemaFactory from '../persistance/mongo/schemaFactories/Course.schemaFactory';
@@ -29,6 +31,8 @@ import CourseSchema from '../persistance/mongo/schemas/Course.schema';
     CourseFactory,
     ContentBlockFactory,
     SubscriptionFactory,
+    LessonFactory,
+    VideoFactory,
     MongoCourseEntityRepository,
     CourseSchemaFactory,
     ...CourseCommandHandlers,
