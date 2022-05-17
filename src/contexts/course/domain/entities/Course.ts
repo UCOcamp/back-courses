@@ -97,6 +97,9 @@ class Course extends AggregateRoot {
   set contentBlocks(contentBlocks: ContentBlock[]) {
     this._contentBlocks = contentBlocks;
   }
+  addContentBlock(contentBlock: ContentBlock) {
+    this._contentBlocks.push(contentBlock);
+  }
 
   get subscriptions() {
     return this._subscriptions;

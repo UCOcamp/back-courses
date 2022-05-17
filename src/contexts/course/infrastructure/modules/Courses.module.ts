@@ -6,6 +6,7 @@ import {
   CourseEventHandlers,
   CourseQueryHandlers,
 } from '../../application/useCases/_index';
+import ContentBlockFactory from '../../domain/entities/factories/ContentBlockFactory';
 import CourseFactory from '../../domain/entities/factories/CourseFactory';
 import { CourseControllers } from '../controllers/_index';
 import MongoCourseEntityRepository from '../persistance/mongo/repositories/CourseEntityRepository';
@@ -25,6 +26,7 @@ import CourseSchema from '../persistance/mongo/schemas/Course.schema';
   controllers: [...CourseControllers],
   providers: [
     CourseFactory,
+    ContentBlockFactory,
     MongoCourseEntityRepository,
     CourseSchemaFactory,
     ...CourseCommandHandlers,
