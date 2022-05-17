@@ -1,5 +1,7 @@
+import { NotFoundException } from '@nestjs/common';
 import { AggregateRoot } from '@nestjs/cqrs';
 import ContentBlock, { ContentBlockAsJSON } from './ContentBlock';
+import Lesson from './Lesson';
 import Subscription, { SubscriptionAsJSON } from './Subscription';
 
 type CourseAsJSON = {
@@ -101,6 +103,13 @@ class Course extends AggregateRoot {
     this._contentBlocks.push(contentBlock);
   }
 
+  addLessonToContentBlock(contentBlockID: string, lesson: Lesson) {
+    const index = this._contentBlocks.findIndex(
+      (cb) => cb.id === contentBlockID
+    );
+    if (index === -1) throw new NotFoundException('Content Block not found!');
+    this._contentBlocks[index].addLesson(lesson);
+  }
   get subscriptions() {
     return this._subscriptions;
   }
