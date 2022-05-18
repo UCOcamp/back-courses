@@ -106,6 +106,7 @@ class Course extends AggregateRoot {
     const index = this.contentBlocks.findIndex(
       (cb) => cb.id === contentBlockID
     );
+    if (index === -1) throw new NotFoundException('Content Block not found!');
     return this.contentBlocks[index];
   }
 
