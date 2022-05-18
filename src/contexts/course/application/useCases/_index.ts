@@ -8,6 +8,7 @@ import CreateSubscriptionHandler from './CreateSubscription/commands/CreateSubsc
 import SubscriptionWasCreatedHandler from './CreateSubscription/events/SubscriptionWasCreated.handler';
 import GetAllCoursesHandler from './GetAllCourses/queries/GetAllCourses.handler';
 import GetContentBlocksFromCourseHandler from './GetContentBlocksFromCourse/queries/GetContentBlocksFromCourse.handler';
+import GetLessonsFromContentBlockHandler from './GetLessonsFromContentBlocks/queries/GetLessonsFromContentBlocks.handler';
 
 export const CourseCommandHandlers = [
   CreateCourseHandler,
@@ -18,6 +19,7 @@ export const CourseCommandHandlers = [
 export const CourseQueryHandlers = [
   GetAllCoursesHandler,
   GetContentBlocksFromCourseHandler,
+  GetLessonsFromContentBlockHandler,
 ];
 export const CourseEventHandlers = [
   CourseWasCreatedHandler,

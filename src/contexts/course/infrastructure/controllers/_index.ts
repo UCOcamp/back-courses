@@ -4,6 +4,7 @@ import CreateLessonController from './CreateLesson.controller';
 import CreateSubscriptionController from './CreateSubscription.controller';
 import GetAllCoursesController from './GetAllCourses.controller';
 import GetContentBlocksFromCourseController from './GetContentBlocksFromCourse.controller';
+import GetLessonsFromContentBlockController from './GetLessonsFromContentBlock.controller';
 
 export const CourseControllers = [
   CreateCourseController,
@@ -12,4 +13,5 @@ export const CourseControllers = [
   CreateSubscriptionController,
   CreateLessonController,
   GetContentBlocksFromCourseController,
+  GetLessonsFromContentBlockController,
 ];
