@@ -14,7 +14,7 @@ import {
 } from '../../application/useCases/GetAllCourses/responses/GetAllCourses.response';
 
 @Controller('courses')
-@ApiTags('courses')
+@ApiTags('Courses')
 class GetAllCoursesController {
   constructor(private readonly queryBus: QueryBus) {}
   @Get('/')

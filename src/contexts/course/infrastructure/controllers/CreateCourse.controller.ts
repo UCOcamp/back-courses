@@ -57,7 +57,7 @@ class CreateCourseDTO {
   thumbnail!: Express.Multer.File;
 }
 
-@ApiTags('course')
+@ApiTags('Courses')
 @Controller('course')
 class CreateCourseController {
   constructor(private readonly commandBus: CommandBus) {}
