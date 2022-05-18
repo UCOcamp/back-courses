@@ -102,6 +102,12 @@ class Course extends AggregateRoot {
   addContentBlock(contentBlock: ContentBlock) {
     this._contentBlocks.push(contentBlock);
   }
+  getContentBlock(contentBlockID: string) {
+    const index = this.contentBlocks.findIndex(
+      (cb) => cb.id === contentBlockID
+    );
+    return this.contentBlocks[index];
+  }
 
   addLessonToContentBlock(contentBlockID: string, lesson: Lesson) {
     const index = this._contentBlocks.findIndex(
