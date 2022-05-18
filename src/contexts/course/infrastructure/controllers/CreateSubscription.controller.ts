@@ -33,7 +33,7 @@ class CreateSubscriptionDTO {
   expirationDate!: Date;
 }
 
-@ApiTags('subscription')
+@ApiTags('Subscriptions')
 @Controller('subscription')
 class CreateSubscriptionController {
   constructor(private readonly commandBus: CommandBus) {}

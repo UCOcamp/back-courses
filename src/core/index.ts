@@ -14,7 +14,10 @@ async function bootstrap() {
     .setTitle('UCOCamp Courses Microservice')
     .setDescription('Courses microservice API.')
     .setVersion('1.0')
-    .addTag('courses')
+    .addTag('Courses')
+    .addTag('Content Blocks')
+    .addTag('Subscriptions')
+    .addTag('Lessons')
     .build();
 
   const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);

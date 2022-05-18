@@ -45,7 +45,7 @@ class CreateContentBlockDTO {
   duration!: number;
 }
 
-@ApiTags('content-block')
+@ApiTags('Content Blocks')
 @Controller('content-block')
 class CreateContentBlockController {
   constructor(private readonly commandBus: CommandBus) {}

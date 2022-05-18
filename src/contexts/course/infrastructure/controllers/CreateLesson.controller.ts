@@ -85,7 +85,7 @@ class CreateLessonDTOWithoutBinarys {
   duration!: number;
 }
 
-@ApiTags('lesson')
+@ApiTags('Lessons')
 @Controller('lesson')
 class CreateLessonController {
   constructor(private readonly commandBus: CommandBus) {}
