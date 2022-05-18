@@ -6,7 +6,7 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import GetAllCoursesQuery from '../../application/useCases/GetAllCourses/queries/GetAllCourses.handler';
+import GetAllCoursesQuery from '../../application/useCases/GetAllCourses/queries/GetAllCourses.query';
 import GetAllCoursesRequest from '../../application/useCases/GetAllCourses/requests/GetAllCourses.request';
 import {
   GetAllCoursesResponse,
